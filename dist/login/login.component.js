@@ -21,8 +21,6 @@ var LoginComponent = (function () {
             'email': ['', common_1.Validators.required],
             'password': ['', common_1.Validators.required]
         });
-        this.emailField = this.loginForm.controls['email'];
-        this.passwordField = this.loginForm.controls['password'];
     }
     //////////////////////////
     //Init function

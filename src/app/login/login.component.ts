@@ -16,8 +16,7 @@ export class LoginComponent implements OnInit{
     //////////////////////////
     //properties
     loginForm: ControlGroup;
-    emailField: AbstractControl;
-    passwordField: AbstractControl;
+
     
     
     ///////////////////////
@@ -29,8 +28,7 @@ export class LoginComponent implements OnInit{
             'email': ['', Validators.required],
             'password': ['', Validators.required]
         });
-        this.emailField = this.loginForm.controls['email'];
-        this.passwordField = this.loginForm.controls['password'];
+        
 
     }
     
