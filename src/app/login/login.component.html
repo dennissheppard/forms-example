@@ -1,0 +1,39 @@
+<div class="ui container">
+    <form class="ui form" (ngSubmit)="signIn()" #loginForm="ngForm">
+        <div class="field">
+            <label>First Name</label>
+            <input type="email"
+                   name="email23"
+                   placeholder="Email Address"
+                   required
+                    ngControl="email"
+                   #email="ngForm"
+            >
+        </div>
+        <div [hidden]="email.valid || email.pristine" class="ui error">
+            Email is required
+        </div>
+        <div class="field">
+            <label>Last Name</label>
+            <input type="password" name="password23" placeholder="password" required>
+        </div>
+        <div class="ui error message">
+            Password is required
+        </div>
+        <div class="field">
+            <label>User Type</label>
+            <select required>
+                <option>User A</option>
+                <option>User B</option>
+            </select>
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                <input type="checkbox" class="hidden">
+                <label>I agree to the Terms and Conditions</label>
+            </div>
+        </div>
+
+        <button [disabled]="!loginForm.form.valid" class="ui button" type="submit">Submit</button>
+    </form>
+</div>
