@@ -24,16 +24,15 @@ var LoginComponent = (function () {
     };
     //////////////////////////////////
     //View/public functions
-    LoginComponent.prototype.signIn = function () {
-        // this.loginService.authenticate(this.credentials)
-        //     .subscribe(() => {
-        //         this.loginService.getStakeholderDetail()
-        //             .subscribe((user: User) => {
-        //                 this.user = user;
-        //                 console.log(this.user);
-        //             });
-        //
-        //     });
+    LoginComponent.prototype.signIn = function (credentials) {
+        var _this = this;
+        console.log(credentials);
+        this.loginService.authenticate(credentials)
+            .subscribe(function () {
+            _this.loginService.getStakeholderDetail()
+                .subscribe(function (response) {
+            });
+        });
     };
     LoginComponent = __decorate([
         core_1.Component({

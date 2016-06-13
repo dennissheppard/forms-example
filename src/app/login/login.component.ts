@@ -35,16 +35,16 @@ export class LoginComponent implements OnInit{
     //////////////////////////////////
     //View/public functions
     
-    signIn(){
-        // this.loginService.authenticate(this.credentials)
-        //     .subscribe(() => {
-        //         this.loginService.getStakeholderDetail()
-        //             .subscribe((user: User) => {
-        //                 this.user = user;
-        //                 console.log(this.user);
-        //             });
-        //
-        //     });
+    signIn(credentials){
+        console.log(credentials);
+        this.loginService.authenticate(credentials)
+            .subscribe(() => {
+                this.loginService.getStakeholderDetail()
+                    .subscribe((response) => {
+                        
+                    });
+
+            });
     }
     
     
