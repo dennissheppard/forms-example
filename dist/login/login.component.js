@@ -10,13 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var login_service_1 = require('./login.service');
+var common_1 = require("@angular/common");
 var LoginComponent = (function () {
-    //////////////////////////
-    //properties
     ///////////////////////
     //private members
-    function LoginComponent(loginService) {
+    function LoginComponent(loginService, formBuilder) {
         this.loginService = loginService;
+        this.formBuilder = formBuilder;
+        this.loginForm = this.formBuilder.group({
+            'email': ['', common_1.Validators.required],
+            'password': ['', common_1.Validators.required]
+        });
+        this.emailField = this.loginForm.controls['email'];
+        this.passwordField = this.loginForm.controls['password'];
     }
     //////////////////////////
     //Init function
@@ -41,7 +47,7 @@ var LoginComponent = (function () {
             directives: [],
             providers: [login_service_1.LoginService]
         }), 
-        __metadata('design:paramtypes', [login_service_1.LoginService])
+        __metadata('design:paramtypes', [login_service_1.LoginService, common_1.FormBuilder])
     ], LoginComponent);
     return LoginComponent;
 }());

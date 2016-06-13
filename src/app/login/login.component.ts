@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from './login.service';
 import { User } from '../shared/models/user';
+import {FormBuilder, ControlGroup, Validators, AbstractControl} from "@angular/common";
+import { FORM_DIRECTIVES } from '@angular/common';
 
 @Component({
     selector: 'login',
@@ -13,15 +15,23 @@ import { User } from '../shared/models/user';
 export class LoginComponent implements OnInit{
     //////////////////////////
     //properties
-    
+    loginForm: ControlGroup;
+    emailField: AbstractControl;
+    passwordField: AbstractControl;
     
     
     ///////////////////////
     //private members
     
     
-    constructor(private loginService: LoginService){
-    
+    constructor(private loginService: LoginService, private formBuilder: FormBuilder){
+        this.loginForm = this.formBuilder.group({
+            'email': ['', Validators.required],
+            'password': ['', Validators.required]
+        });
+        this.emailField = this.loginForm.controls['email'];
+        this.passwordField = this.loginForm.controls['password'];
+
     }
     
     //////////////////////////
