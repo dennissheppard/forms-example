@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { LoginService } from './login.service';
 import { User } from '../shared/models/user';
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit{
             .subscribe(() => {
                 this.loginService.getStakeholderDetail()
                     .subscribe((response) => {
-                        
+
                     });
 
             });
