@@ -1,19 +1,19 @@
 <div class="ui container">
     <form class="ui form" (ngSubmit)="signIn(loginForm.value)" [ngFormModel]="loginForm">
         <div class="field" [class.error]="!emailField.valid && emailField.touched">
-            <label>First Name</label>
+            <label>Email Address</label>
             <input type="email"
                    name="email23"
                    placeholder="Email Address"
                    required
-                   [ngFormControl]="loginForm.controls['email']"
+                   ngControl="email"
             >
         </div>
         <div [hidden]="emailField.valid || emailField.pristine" class="ui error">
             Email is required
         </div>
         <div class="field" [class.error]="passwordField.hasError('required')">
-            <label>Last Name</label>
+            <label>Password</label>
             <input
                     type="password"
                     name="password23"
@@ -22,7 +22,7 @@
                     [ngFormControl]="loginForm.controls['password']"
                     >
         </div>
-        <div *ngIf="passwordField.hasError('required')" class="ui error">
+        <div *ngIf="passwordField.hasError('required') && !passwordField.pristine" class="ui error">
             Password is required
         </div>
         <div class="field">
