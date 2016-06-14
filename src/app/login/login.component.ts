@@ -4,6 +4,7 @@ import { LoginService } from './login.service';
 import { User } from '../shared/models/user';
 import {FormBuilder, ControlGroup, Validators, AbstractControl} from "@angular/common";
 import { FORM_DIRECTIVES } from '@angular/common';
+import {emailTakenValidator} from '../shared/form-validators/email-taken.validator';
 
 @Component({
     selector: 'login',
@@ -25,10 +26,10 @@ export class LoginComponent implements OnInit{
     
     constructor(private loginService: LoginService, private formBuilder: FormBuilder){
         this.loginForm = this.formBuilder.group({
-            'email': ['', Validators.required],
+            'email': ['', Validators.required, emailTakenValidator.emailTaken],
             'password': ['', Validators.required]
         });
-        
+
 
     }
     

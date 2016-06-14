@@ -1,19 +1,22 @@
 <div class="ui container">
     <form class="ui form" (ngSubmit)="signIn(loginForm.value)" [ngFormModel]="loginForm">
         <div class="field" [class.error]="!loginForm.find('email').valid && loginForm.find('email').touched">
-            <label>First Name</label>
+            <label>Email</label>
             <input type="email"
                    name="email23"
                    placeholder="Email Address"
                    required
                    [ngFormControl]="loginForm.controls['email']"
             >
+            <div *ngIf="loginForm.find('email').hasError('emailTaken')">
+                Sorry, this email is already in use!
+            </div>
         </div>
         <div [hidden]="loginForm.find('email').valid || loginForm.find('email').pristine" class="ui error">
             Email is required
         </div>
         <div class="field" [class.error]="loginForm.find('password').hasError('required')">
-            <label>Last Name</label>
+            <label>Password</label>
             <input
                     type="password"
                     name="password23"

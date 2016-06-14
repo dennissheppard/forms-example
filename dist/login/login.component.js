@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var login_service_1 = require('./login.service');
 var common_1 = require("@angular/common");
+var email_taken_validator_1 = require('../shared/form-validators/email-taken.validator');
 var LoginComponent = (function () {
     ///////////////////////
     //private members
@@ -18,7 +19,7 @@ var LoginComponent = (function () {
         this.loginService = loginService;
         this.formBuilder = formBuilder;
         this.loginForm = this.formBuilder.group({
-            'email': ['', common_1.Validators.required],
+            'email': ['', common_1.Validators.required, email_taken_validator_1.emailTakenValidator.emailTaken],
             'password': ['', common_1.Validators.required]
         });
     }

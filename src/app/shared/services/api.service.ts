@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 export class ApiService {
 
     constructor(private http: Http) {
-        this.headers = this.getHeaders();
+        this.headers = this.setAuthHeader();
         this.requestOptions = new RequestOptions({ headers: this.headers });
     }
 
@@ -37,7 +37,7 @@ export class ApiService {
     setAuthHeader(){
         if(localStorage.getItem('authToken')){
             this.headers = new Headers({
-                'AUTHORIZATION': 'Token ' + localStorage.getItem('authToken'),
+                'AUTHORIZATION': 'Token 09195ed25cb1fed8d305c27ca7525e958db0dbfa', //hard code for now
                 'Content-Type': 'application/json'
             });
             this.requestOptions = new RequestOptions({ headers: this.headers });

@@ -13,7 +13,7 @@ var http_1 = require('@angular/http');
 var ApiService = (function () {
     function ApiService(http) {
         this.http = http;
-        this.headers = this.getHeaders();
+        this.headers = this.setAuthHeader();
         this.requestOptions = new http_1.RequestOptions({ headers: this.headers });
     }
     ApiService.prototype.get = function (url) {
@@ -34,7 +34,7 @@ var ApiService = (function () {
     ApiService.prototype.setAuthHeader = function () {
         if (localStorage.getItem('authToken')) {
             this.headers = new http_1.Headers({
-                'AUTHORIZATION': 'Token ' + localStorage.getItem('authToken'),
+                'AUTHORIZATION': 'Token 09195ed25cb1fed8d305c27ca7525e958db0dbfa',
                 'Content-Type': 'application/json'
             });
             this.requestOptions = new http_1.RequestOptions({ headers: this.headers });
