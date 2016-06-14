@@ -1,11 +1,10 @@
 <div class="ui container">
     <form class="ui form" (ngSubmit)="signIn(loginForm.value)" [ngFormModel]="loginForm">
         <div class="field" [class.error]="!loginForm.find('email').valid && loginForm.find('email').touched">
-            <label>First Name</label>
+            <label>Email Address</label>
             <input type="email"
                    name="email23"
                    placeholder="Email Address"
-                   required
                    [ngFormControl]="loginForm.controls['email']"
             >
         </div>
@@ -13,12 +12,11 @@
             Email is required
         </div>
         <div class="field" [class.error]="loginForm.find('password').hasError('required')">
-            <label>Last Name</label>
+            <label>Password</label>
             <input
                     type="password"
                     name="password23"
                     placeholder="password"
-                    required
                     [ngFormControl]="loginForm.controls['password']"
                     #password="ngForm"
                     >
